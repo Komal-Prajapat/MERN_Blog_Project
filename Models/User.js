@@ -9,12 +9,16 @@ const userSchema = new mongoose.Schema({
         require:true,
         unique:true
     },
-    phone:{
-        type:Number,
+    password:{
+        type:String,
         require:true,
-        unique:true
+       
+    },
+    createdAt:{
+        type:Date,
+        default:Date.now(),
     },
     })
 
-export  const user = mongoose.model("User" ,userSchema);
- 
+export  const User = mongoose.model("User" ,userSchema);
+  

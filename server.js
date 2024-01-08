@@ -1,14 +1,21 @@
 import express  from "express";
 import { config } from "dotenv";
 import mongoose from "mongoose";
-
-
+import userRouter from './Router/user.js'
+ import bodyParser from 'express'
 
 //creating Config file
 const app = express()
-config({
+config({  
     path:'.env'
 })
+app.use(bodyParser.json()) 
+
+//userRouter
+
+app.use('/api',userRouter);
+
+
 
 
 //DB Connection
