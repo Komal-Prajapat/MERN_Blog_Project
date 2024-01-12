@@ -32,7 +32,7 @@ export const login = async (req, res) => {
   if (!valid_password) return res.json({ message: " invalid ....." });
 
   const token = jwt.sign({ userID: user.id }, process.env.JWT, {
-    expiresIn: "1h",
+    expiresIn: "1d",
   });
   res.status(200).json({ message: `Welcome ${user.name}`, token });
 };
