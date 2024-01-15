@@ -18,6 +18,6 @@ export const authenticate = async (req, res, next) => {
   catch(e)
   {
     if(e.name == "TokenExpiredError")return res.json({message:"Token Expored Please Login"})
-    res.json({message:"Internal Sever Erroe ..."});
+    res.json({message:"Internal Sever Error ..."});
   }
   };
