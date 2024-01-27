@@ -33,7 +33,8 @@ mongoose
   .then(() => console.log("connected..."));
 
 //setup server
-const port = process.env.PORT;
+// const port = process.env.PORT;
+const port = 9090
 app.listen(port, () => {
   console.log(`server is connected..${port}`);
 });
