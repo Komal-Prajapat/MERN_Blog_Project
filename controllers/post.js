@@ -4,9 +4,9 @@ export const addPost = async (req, res) => {
   const { title, description, imgUrl } = req.body;
 
   // console.log(req.body)
-  const post = await Post.create({
+  const post = await Post.create({ 
     title,
-    description,
+    description, 
     imgUrl,
     post: req.post,
   });
@@ -67,7 +67,7 @@ export const likePostById = async(req,res)=>{
   post.likes.push(req.user._id)
 
   await post.save();
-  
+    
   res.json({message:"post like",post});
  }
  catch(e){
@@ -92,4 +92,19 @@ export const CommentPostById = async(req,res)=>{
   postId:id
   })
   res.json({message:" ********* Comment Added ******** ", postcomment})
+}
+
+
+
+//getcomment by  post Id
+
+
+export const getCommentByPostID =async (req,res) =>
+{
+  const id = req.params.id;
+  const post = await Post.findById(id);
+  if(!post)return res.json({messega:"Post not Exist.."});
+  const postComment = await Comment.find({postId:id})
+  if(!postComment) return res.json({message:"no comments"});
+  res.json({message:"post comments",postComment});
 }
