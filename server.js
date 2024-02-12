@@ -21,9 +21,9 @@ app.use(bodyParser.json());
 
 //userRouter
 
-app.use("/",async(req,res)=>{
-  res.json({message:"this is home page"})
-})
+// app.use("/",async(req,res)=>{
+//   res.json({message:"this is home page"})
+// })
 
 app.use("/api", userRouter); 
 
